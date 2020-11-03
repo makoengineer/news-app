@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
-import Constants from 'expo-constants';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import ListItem from '../components/ListItem';
+import { NEWS_API_KEY } from '@env';
 
-const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
+const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${NEWS_API_KEY}`;
 
 export default HomeScreen = (props) => {
   const [articles, setArticles] = useState([]);
