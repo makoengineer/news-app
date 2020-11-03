@@ -6,7 +6,7 @@ import ListItem from '../components/ListItem';
 
 const URL = `http://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
-export default HomeScreen = ({ navigation }) => {
+export default HomeScreen = (props) => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     fetchArticles();
@@ -30,7 +30,9 @@ export default HomeScreen = ({ navigation }) => {
             imageUrl={item.urlToImage}
             title={item.title}
             author={item.author}
-            onPress={() => navigation.navigate('Article', { article: item })}
+            onPress={() =>
+              props.navigation.navigate('Article', { article: item })
+            }
           />
         )}
         keyExtractor={(item, index) => index.toString()}
